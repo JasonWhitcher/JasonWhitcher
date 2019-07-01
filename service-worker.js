@@ -9,7 +9,7 @@ var files_to_cache = [
 	'/style.css',
 	'/script.js',
 	'/images/icon-dg-128.png',
-        '/dgapp.github.io/images/icon-dg-144.png',
+        '/images/icon-dg-144.png',
         '/images/icon-dg-152.png',
         '/images/icon-dg-192.png',
         '/images/icon-dg-256.png',
