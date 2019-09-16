@@ -1,0 +1,201 @@
+/*
+Author: Jason Whitcher
+Description: CSS for Jason Whitcher resume/portfolio website.
+*/
+
+$jw-tablet: 640px;
+$jw-desktop: 960px;
+
+$jw-color-primary: #554dff;
+$jw-color-secondary: #dedede;
+$jw-text-color: black;
+$jw-text-color-link: $jw-color-primary;
+
+body {
+	padding: 0;
+	margin: 0;
+	font-size: 24px;
+	h1 {
+		font-size: 1.6em;
+	}
+	h2, h3 {
+		font-size: 1.3em;
+	}
+	h4, h5, h6 {
+		font-size: 1.2em;
+	}
+	a {
+		color: $jw-text-color-link;
+		text-decoration: none;
+		&:hover,
+		&:active,
+		&:visited {
+			color: $jw-text-color-link;
+		}
+	}
+	ul {
+		padding: 0;
+		list-style-type: none;
+		li {
+			font-style: italic;
+		}
+	}
+}
+
+header {
+	background-color: $jw-color-secondary;
+	nav {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		a {
+			padding: 5px;
+			&:first-of-type {
+				margin-bottom: 20px;
+			}
+			h1, h4 {
+				margin: 0;
+				text-align: center;
+			}
+		}
+	}
+	#jw-portrait {
+		margin: 0 auto;
+		height: 100px;
+		width: 100px;
+		img {
+			display: block;
+			height: inherit;
+			width: inherit;
+		}
+	}
+}
+article {
+	& > * {
+		margin: 50px 10px;
+	}
+}
+
+@media screen and (min-width: $jw-tablet) {
+	body {
+		margin: 0px auto;
+		max-width: $jw-desktop;
+	}
+	header {
+		nav {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+			a {
+				margin: 0 5px;
+			}
+		}
+		#jw-portrait {
+			float: right;
+		}
+	}
+	article {
+		ul {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			align-items: center;
+			li {
+				margin: 0 5px;
+			}
+		}
+	}	
+}
+
+/*** Portfolio page ***/
+.jw-portfolio-item {
+	a.jw-portfolio-grid-container {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"image"
+			"title"
+			"description";
+		color: $jw-text-color;
+		img.jw-portfolio-img {
+			grid-area: image;
+			width: 300px;
+			border: 1px solid $jw-color-secondary;
+		}
+		h4.jw-portfolio-title {
+			grid-area: title;
+			margin: 10px 0;
+		}
+		span.jw-portfolio-description {
+			grid-area: description;
+		}
+	}
+}
+@media screen and (min-width: $jw-tablet) {
+	.jw-portfolio-item {
+		a.jw-portfolio-grid-container {
+			grid-template-columns: 1fr 2fr;
+			grid-template-areas:
+				"image title"
+				"image description";
+			h4.jw-portfolio-title {
+				padding-left: 10px;
+			}
+			span.jw-portfolio-description {
+				padding-left: 10px;
+			}
+		}
+	}
+}
+
+/*** Jasper Experience Portfolio page ***/
+.jw-je-grid-container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	grid-template-areas: 
+		"category"
+		"front-admin-top"
+		"front-admin-bottom"
+		"edit"
+		"backend-admin";
+	grid-column-gap: 50px;
+	grid-row-gap: 50px;
+	.jw-je-image-container {
+		margin: 0;
+		img {
+			width: 100%;
+			border: 1px solid $jw-color-secondary;
+		}
+		figcaption {
+
+		}
+	}
+	#jw-je-category-view {
+		grid-area: category;
+	}
+	#jw-je-edit-add-admin-top {
+		grid-area: front-admin-top;
+	}
+	#jw-je-edit-add-admin-bottom {
+		grid-area: front-admin-bottom;
+	}
+	#jw-je-edit-listing {
+		grid-area: edit;
+	}
+	#jw-je-backend-admin-summary {
+		grid-area: backend-admin;
+	}
+}
+@media screen and (min-width: $jw-tablet) {
+	.jw-je-grid-container {
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas:
+			"front-admin-top front-admin-bottom"
+			"edit backend-admin"
+			"category .";
+	}
+}
